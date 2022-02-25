@@ -42,4 +42,9 @@ const BootcampSchema = new mongoose.Schema({
     }
 })
 
+BootcampSchema.pre('remove', async function (next) {
+    await this.model('Course').deleteMany({ bootcamp: this._id });
+    next();
+});
+
 module.exports = mongoose.model('Bootcamp', BootcampSchema);

@@ -48,4 +48,9 @@ UserSchema.methods.getSignedJwtToken = function () {
     });
 }
 
+UserSchema.pre('remove', async function (next) {
+    await this.model('Course').deleteMany({ user: this._id });
+    next();
+});
+
 module.exports = mongoose.model('User', UserSchema);
