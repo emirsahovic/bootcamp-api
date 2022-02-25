@@ -49,4 +49,3 @@ UserSchema.methods.getSignedJwtToken = function () {
 }
 
 module.exports = mongoose.model('User', UserSchema);
-
