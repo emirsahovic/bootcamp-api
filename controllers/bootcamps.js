@@ -29,3 +29,30 @@ exports.createBootcamp = asyncHandler(async (req, res, next) => {
         data: bootcamp
     })
 })
+
+exports.updateBootcamp = asyncHandler(async (req, res, next) => {
+    let bootcamp = await Bootcamp.findById(req.params.id);
+
+    if (!bootcamp) {
+        return next(new ErrorResponse(`Bootcamp with the id ${req.params.id} not found`, 404));
+    }
+
+    bootcamp = await Bootcamp.findOneAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true
+    })
+
+    res.status(200).json({ success: true, data: bootcamp });
+})
+
+exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
+    const bootcamp = await Bootcamp.findById(req.params.id);
+
+    if (!bootcamp) {
+        return next(new ErrorResponse(`Bootcamp with the id ${req.params.id} not found`, 404));
+    }
+
+    bootcamp.remove();
+
+    res.status(200).json({ success: true, data: {} });
+})
