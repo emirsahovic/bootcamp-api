@@ -3,6 +3,7 @@ require('dotenv').config();
 require('colors');
 const users = require('./routes/users');
 const bootcamps = require('./routes/bootcamps');
+const courses = require('./routes/courses');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/error');
 
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/users', users);
 app.use('/api/bootcamps', bootcamps);
+app.use('/api/courses', courses);
 
 app.use(errorHandler);
 
