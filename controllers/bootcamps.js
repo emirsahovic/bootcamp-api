@@ -3,12 +3,7 @@ const asyncHandler = require('express-async-handler');
 const ErrorResponse = require('../utils/errorResponse');
 
 exports.getBootcamps = asyncHandler(async (req, res, next) => {
-    const bootcamps = await Bootcamp.find().populate({
-        path: 'user',
-        select: 'name email'
-    });
-
-    res.status(200).json({ success: true, count: bootcamps.length, data: bootcamps })
+    res.status(200).json(res.advancedResults);
 })
 
 exports.getBootcamp = asyncHandler(async (req, res, next) => {
