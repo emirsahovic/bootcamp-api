@@ -8,6 +8,7 @@ const connectDB = require('./config/db');
 const errorHandler = require('./middleware/error');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
+const xss = require('xss-clean');
 
 const app = express();
 app.use(express.json());
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 
 app.use(mongoSanitize());
 app.use(helmet());
+app.use(xss());
 
 app.use('/api/users', users);
 app.use('/api/bootcamps', bootcamps);
