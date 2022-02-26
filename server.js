@@ -6,6 +6,7 @@ const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
 const connectDB = require('./config/db');
 const errorHandler = require('./middleware/error');
+const mongoSanitize = require('express-mongo-sanitize');
 
 const app = express();
 app.use(express.json());
@@ -17,6 +18,8 @@ const PORT = process.env.PORT || 3030;
 app.get('/', (req, res) => {
     res.send('Welcome to the Bootcamp API');
 })
+
+app.use(mongoSanitize());
 
 app.use('/api/users', users);
 app.use('/api/bootcamps', bootcamps);
