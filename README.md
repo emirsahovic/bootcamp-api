@@ -6,6 +6,11 @@ https://documenter.getpostman.com/view/18219208/UVkqqEaC
 
 # How To Run
 - Git clone repository
+- Create your own .env file that should contain:
+  - PORT = <YOUR_PORT>
+  - MONGO_URI = <YOUR_MONGO_URI>
+  - JWT_SECRET = <YOUR_JWT_SECRET>
+  - JWT_EXPIRE = <YOUR_JWT_EXPIRE>
 - Run these commands in terminal/shell:
   -  npm install
   -  npm start
