@@ -16,8 +16,7 @@ https://documenter.getpostman.com/view/18219208/UVkqqEaC
   -  npm start
 
 # Project Architecture
-```
-│   server.js    
+``` 
 └───config
     │   db.js
 └───controllers
@@ -40,6 +39,7 @@ https://documenter.getpostman.com/view/18219208/UVkqqEaC
 └───utils
     │   errorResponse.js
 │   package-lock.json 
-│   package.json 
+│   package.json
+│   server.js   
 ```
 
